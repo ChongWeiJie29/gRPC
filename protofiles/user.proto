@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package userPackage;
+
+import "google/protobuf/empty.proto";
+
+service User {
+    rpc accountChangePassword(info) returns (replies) {};
+    rpc accountResetPassword(resetInfo) returns (replies) {}
+  }
+
+message resetInfo {
+  string newPassword = 1;
+  string confirmPassword = 2; 
+}
+
+message info {
+  string oldPassword = 1;
+  string newPassword = 2;
+  string confirmPassword = 3;
+}
+
+message replies {
+  string reply = 1;
+}
